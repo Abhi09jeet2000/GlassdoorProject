@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Copyright (c) 2025, Glassdoor Inc.
+ *
+ * Licensed under the Glassdoor Inc Hiring Assessment License.
+ * You may not use this file except in compliance with the License.
+ * You must obtain explicit permission from Glassdoor Inc before sharing or distributing this file.
+ * Mention Glassdoor Inc as the source if you use this code in any way.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--  TODO: [Define the required permissions](https://developer.android.com/develop/connectivity/network-ops/connecting)  -->
+
+    <!--  TODO: [Specify application class](https://developer.android.com/reference/android/app/Application)  -->
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Intern"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".presentation.ui.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Intern">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>

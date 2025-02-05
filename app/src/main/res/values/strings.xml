@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ * Copyright (c) 2025, Glassdoor Inc.
+ *
+ * Licensed under the Glassdoor Inc Hiring Assessment License.
+ * You may not use this file except in compliance with the License.
+ * You must obtain explicit permission from Glassdoor Inc before sharing or distributing this file.
+ * Mention Glassdoor Inc as the source if you use this code in any way.
+-->
+
+<resources>
+
+    <!--  TODO: Provide a suitable application name  -->
+
+    <string name="app_name" translatable="false">Suitable app’s name</string>
+
+    <string name="accessibility_navigation_refresh_screen_content">Refresh screen content</string>
+</resources>
