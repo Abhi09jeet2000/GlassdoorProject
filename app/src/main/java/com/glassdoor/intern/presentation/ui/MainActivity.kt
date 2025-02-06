@@ -13,7 +13,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material3.Text
 import com.glassdoor.intern.presentation.MainViewModel
 import com.glassdoor.intern.presentation.theme.InternTheme
 import dagger.hilt.android.AndroidEntryPoint
