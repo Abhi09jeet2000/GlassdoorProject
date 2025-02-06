@@ -69,7 +69,7 @@ internal fun MainScreen(
 @Preview
 @Composable
 private fun MainScreenPreview() = InternTheme {
-
+//    val uiState = DONE("Define UI state for preview purposes")
 //    val dummyItem1 = ItemUiModel(
 //        title = "Item 1",
 //        description = "Description for item 1",
