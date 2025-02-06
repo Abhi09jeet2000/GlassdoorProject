@@ -13,11 +13,14 @@ import com.glassdoor.intern.domain.repository.InfoRepository
 import com.glassdoor.intern.domain.usecase.GetHeaderInfoUseCase
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 /**
- * TODO: Determine the [appropriate annotation](https://developer.android.com/codelabs/android-hilt#6) and provide the most optimal [scope component](https://developer.android.com/training/dependency-injection/hilt-android#generated-components)
+ * DONE: Determine the [appropriate annotation](https://developer.android.com/codelabs/android-hilt#6) and provide the most optimal [scope component](https://developer.android.com/training/dependency-injection/hilt-android#generated-components)
  */
+@InstallIn(ViewModelComponent::class)
 internal object DomainModule {
 
     @Provides

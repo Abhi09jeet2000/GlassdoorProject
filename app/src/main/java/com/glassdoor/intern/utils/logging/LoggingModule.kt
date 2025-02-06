@@ -9,13 +9,18 @@
 
 package com.glassdoor.intern.utils.logging
 
+import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import timber.log.Timber
 
 /**
- * TODO: [Annotate the DI module](https://developer.android.com/training/dependency-injection/hilt-android#hilt-modules) with correct definitions and [component](https://developer.android.com/training/dependency-injection/hilt-android#hilt-modules)
+ * DONE: [Annotate the DI module](https://developer.android.com/training/dependency-injection/hilt-android#hilt-modules) with correct definitions and [component](https://developer.android.com/training/dependency-injection/hilt-android#hilt-modules)
  */
+@Module
+@InstallIn(SingletonComponent::class)
 internal object LoggingModule {
 
     @IntoSet
