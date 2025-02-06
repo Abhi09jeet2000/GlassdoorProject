@@ -10,6 +10,7 @@
 package com.glassdoor.intern.presentation.di
 
 import com.glassdoor.intern.presentation.MainUiState
+import com.glassdoor.intern.presentation.model.HeaderUiModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,5 +22,16 @@ internal object MainModule {
 
     @Provides
     fun provideMainUiState(): MainUiState =
-        TODO("Define default values and provide initial state")
+        //DONE("Define default values and provide initial state")
+        MainUiState(
+            errorMessage = null,
+            header = HeaderUiModel(
+                title = "",
+                description = "",
+                timestamp = "",
+                items = emptyList()
+            ),
+            isLoading = false,
+            items = emptyList()
+        )
 }
