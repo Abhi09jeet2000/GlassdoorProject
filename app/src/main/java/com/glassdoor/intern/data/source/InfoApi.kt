@@ -9,12 +9,15 @@
 
 package com.glassdoor.intern.data.source
 
+import com.glassdoor.intern.BuildConfig
 import com.glassdoor.intern.data.model.InfoDto
+import retrofit2.http.GET
 
 internal interface InfoApi {
 
     /**
-     * TODO: Apply the [get annotation](https://square.github.io/retrofit) and specify the correct endpoint from `BuildConfig`
+     * DONE: Apply the [get annotation](https://square.github.io/retrofit) and specify the correct endpoint from `BuildConfig`
      */
+    @GET(BuildConfig.ENDPOINT_GET_INFO)
     suspend fun getInfo(): InfoDto
 }
