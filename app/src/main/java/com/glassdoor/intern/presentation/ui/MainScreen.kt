@@ -19,10 +19,14 @@ import com.glassdoor.intern.presentation.IMainViewModel
 import com.glassdoor.intern.presentation.MainIntent.HideErrorMessage
 import com.glassdoor.intern.presentation.MainIntent.RefreshScreen
 import com.glassdoor.intern.presentation.MainUiState
+import com.glassdoor.intern.presentation.model.HeaderUiModel
 import com.glassdoor.intern.presentation.theme.InternTheme
 import com.glassdoor.intern.presentation.ui.component.ContentComponent
 import com.glassdoor.intern.presentation.ui.component.ErrorMessageComponent
 import com.glassdoor.intern.presentation.ui.component.TopBarComponent
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.runtime.getValue
+import com.glassdoor.intern.presentation.model.ItemUiModel
 
 @Composable
 internal fun MainScreen(
@@ -30,9 +34,11 @@ internal fun MainScreen(
     modifier: Modifier = Modifier,
 ) {
     /**
-     * TODO: [Consume UI state safely from the ViewModel](https://developer.android.com/codelabs/jetpack-compose-advanced-state-side-effects#3)
+     * DONE: [Consume UI state safely from the ViewModel](https://developer.android.com/codelabs/jetpack-compose-advanced-state-side-effects#3)
      */
-    val uiState: MainUiState = viewModel.uiState.value
+
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
 
     Scaffold(
         modifier = modifier,
@@ -63,7 +69,33 @@ internal fun MainScreen(
 @Preview
 @Composable
 private fun MainScreenPreview() = InternTheme {
-    val uiState = TODO("Define UI state for preview purposes")
+
+//    val dummyItem1 = ItemUiModel(
+//        title = "Item 1",
+//        description = "Description for item 1",
+//        timestamp = "10:00 AM",
+//        imageUrl=""
+//    )
+//
+//    val dummyItem2 = ItemUiModel(
+//        title="Item 2",
+//        description="Description for item 1",
+//        timestamp = "12:00pm",
+//        imageUrl=""
+//    )
+
+    val dummyHeader = HeaderUiModel(
+        title = "Preview Title",
+        description = "This is a preview description.",
+        timestamp = "Nov 10, 2021 02:02",
+        items = emptyList()
+    )
+    val uiState = MainUiState(
+        errorMessage = null,
+        header = dummyHeader,
+        isLoading = false,
+        items = emptyList()
+    )
 
     MainScreen(viewModel = uiState.asDummyViewModel)
 }
