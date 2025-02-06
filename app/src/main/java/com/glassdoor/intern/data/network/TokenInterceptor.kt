@@ -19,9 +19,9 @@ import javax.inject.Inject
 private const val TOKEN_KEY: String = "token"
 
 /**
- * TODO: Declare the email address from your resume as a token
+ * DONE: Declare the email address from your resume as a token
  */
-private const val TOKEN_VALUE: String = ""
+private const val TOKEN_VALUE: String = "abhirbkulkarni@gmail.com"
 
 internal class TokenInterceptor @Inject constructor() : Interceptor {
 
