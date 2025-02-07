@@ -73,10 +73,6 @@ internal fun ErrorMessageComponent(
                 /**
                  * DONE: Call an action that hides the error message
                  */
-
-                /**
-                 * DONE: Call an action that hides the error message
-                 */
                 hideErrorMessageAction()
             }
         }
