@@ -1,6 +1,12 @@
 # [Glassdoor Inc](https://www.glassdoor.com) Homework Project
 
 
+https://github.com/user-attachments/assets/3d4f589a-6b12-494d-a2b5-1fcc1a4974be
+
+
+
+
+
 https://github.com/user-attachments/assets/50058016-01ae-44f9-9946-61ef48618820
 
 
