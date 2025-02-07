@@ -54,7 +54,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.res.integerResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import com.glassdoor.intern.R
 
 private val headerBorderStrokeWidth: Dp = 3.dp
 private val imageSize: Dp = 120.dp
@@ -96,11 +99,14 @@ private fun CollapsibleText(
     text:String
 ){
     var expanded by remember { mutableStateOf(false) }
+    var maxLines = integerResource(id = R.integer.max_lines)
+
     Text(
         text = text,
         style = MaterialTheme.typography.bodyMedium,
         textAlign = TextAlign.Justify,
-        maxLines = if (expanded) Int.MAX_VALUE else 2,
+        color = MaterialTheme.colorScheme.secondary,
+        maxLines = if (expanded) Int.MAX_VALUE else maxLines,
         overflow = if (expanded) TextOverflow.Clip else TextOverflow.Ellipsis,
     )
     Text(
@@ -139,7 +145,8 @@ private fun HeaderComponent(
             Column(modifier = Modifier.padding(InternTheme.dimensions.normal)) {
                 Text(
                     text = title,
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.secondary,
                 )
                 Spacer(modifier = Modifier.height(InternTheme.dimensions.normal))
                 CollapsibleText(text=description)
@@ -155,21 +162,29 @@ private fun HeaderComponent(
 }
 
 @Composable
-private fun ItemComponent(item: ItemUiModel) = Card {
+private fun ItemComponent(item: ItemUiModel) = Card(
+    border = BorderStroke(
+        width = 1.dp,
+        color = MaterialTheme.colorScheme.secondary
+    )
+) {
     with(item) {
         Row(
             modifier = Modifier.padding(InternTheme.dimensions.double),
             horizontalArrangement = Arrangement.spacedBy(InternTheme.dimensions.double),
+
         ) {
             Text(
                 modifier = Modifier.weight(1F),
                 text = title,
                 style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.secondary,
             )
 
             Text(
                 text = timestamp,
                 style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
 
@@ -184,6 +199,7 @@ private fun ItemComponent(item: ItemUiModel) = Card {
                 text = description,
                 style = MaterialTheme.typography.bodySmall,
                 textAlign = TextAlign.Justify,
+                color = MaterialTheme.colorScheme.secondary,
             )
 
             AsyncImage(

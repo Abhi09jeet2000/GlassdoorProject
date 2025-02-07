@@ -14,6 +14,7 @@
     <!--  TODO: Provide a suitable application name  -->
 
     <string name="app_name" translatable="false">Interview Horoscope</string>
+    <integer name="max_lines" translatable="false">2</integer>
 
     <string name="accessibility_navigation_refresh_screen_content">Refresh screen content</string>
 </resources>
