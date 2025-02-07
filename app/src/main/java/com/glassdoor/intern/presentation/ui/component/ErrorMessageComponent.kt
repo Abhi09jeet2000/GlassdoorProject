@@ -53,6 +53,7 @@ internal fun ErrorMessageComponent(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight()
+                .background(Color.DarkGray)
                 .padding(InternTheme.dimensions.normal),
             contentAlignment = Alignment.Center  // This centers content both vertically and horizontally
         ) {
@@ -60,7 +61,6 @@ internal fun ErrorMessageComponent(
                 modifier = Modifier
 //                    .fillMaxWidth()
                     .padding(InternTheme.dimensions.normal),
-
                 text = state,
                 color = MaterialTheme.colorScheme.onError,
                 style = MaterialTheme.typography.headlineLarge,
@@ -79,7 +79,7 @@ internal fun ErrorMessageComponent(
     }
 }
 
-@Preview(showBackground=false)
+@Preview(showBackground=true)
 @Composable
 private fun ErrorMessageComponentPreview(
     @PreviewParameter(ErrorMessageComponentPreviewParameterProvider::class) errorMessage: String?
