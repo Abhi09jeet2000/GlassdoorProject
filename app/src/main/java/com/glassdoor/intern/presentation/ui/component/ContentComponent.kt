@@ -164,7 +164,7 @@ private fun ItemComponent(item: ItemUiModel) = Card {
                 contentScale = ContentScale.Crop,
                 error = rememberVectorPainter(Icons.Default.Warning),
 //                model = DONE("[Request an image download](https://github.com/coil-kt/coil#requests)"),
-                model = imageUrl
+                model = imageUrl?:""
             )
         }
     }
