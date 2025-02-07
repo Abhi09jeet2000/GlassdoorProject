@@ -55,7 +55,7 @@ internal fun ErrorMessageComponent(
                 .fillMaxHeight()
                 .background(Color.DarkGray)
                 .padding(InternTheme.dimensions.normal),
-            contentAlignment = Alignment.Center  // This centers content both vertically and horizontally
+            contentAlignment = Alignment.Center
         ) {
             Text(
                 modifier = Modifier
