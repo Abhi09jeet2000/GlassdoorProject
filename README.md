@@ -1,5 +1,14 @@
 # [Glassdoor Inc](https://www.glassdoor.com) Homework Project
 
+
+https://github.com/user-attachments/assets/50058016-01ae-44f9-9946-61ef48618820
+
+
+
+
+https://github.com/user-attachments/assets/675ccca3-7eae-4d3a-8ef5-b7ab2f6da56e
+
+
 ## License agreement
 
 By accessing and using this project in whole or in part, you agree to [the following terms and conditions](LICENSE.md).
