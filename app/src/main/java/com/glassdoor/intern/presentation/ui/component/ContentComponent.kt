@@ -61,6 +61,7 @@ import com.glassdoor.intern.R
 
 private val headerBorderStrokeWidth: Dp = 3.dp
 private val imageSize: Dp = 120.dp
+private val itemBorderStrokeWidth = 1.dp
 
 @Composable
 internal fun ContentComponent(
@@ -164,7 +165,7 @@ private fun HeaderComponent(
 @Composable
 private fun ItemComponent(item: ItemUiModel) = Card(
     border = BorderStroke(
-        width = 1.dp,
+        width = itemBorderStrokeWidth,
         color = MaterialTheme.colorScheme.secondary
     )
 ) {
