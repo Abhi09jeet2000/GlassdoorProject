@@ -39,6 +39,6 @@ internal class InfoRepositoryImpl @Inject constructor(
         } catch (throwable: Throwable) {
             Timber.e(throwable, "InfoRepositoryImpl")
 
-            Err(throwable) //Err(DONE("Convert to error"))
+            Err(Throwable(throwable.message)) //Err(DONE("Convert to error"))
         }
 }

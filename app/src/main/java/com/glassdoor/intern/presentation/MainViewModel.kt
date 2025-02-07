@@ -109,8 +109,7 @@ internal class MainViewModel @Inject constructor(
 
         is UpdateErrorMessageState -> with(partialState) {
             previousUiState.copy(
-                errorMessage = errorMessage,
-                items = if (errorMessage.isNullOrEmpty()) previousUiState.items else emptyList(),
+                errorMessage = errorMessage
             )
         }
 
