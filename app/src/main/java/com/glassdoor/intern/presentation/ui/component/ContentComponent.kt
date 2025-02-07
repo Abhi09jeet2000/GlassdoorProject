@@ -17,7 +17,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -69,10 +71,12 @@ internal fun ContentComponent(
         verticalArrangement = Arrangement.spacedBy(InternTheme.dimensions.double),
     ) {
         /**
-         * TODO: Specify the [item key](https://developer.android.com/jetpack/compose/lists#item-keys) and [content type](https://developer.android.com/jetpack/compose/lists#content-type)
+         * DONE : Specify the [item key](https://developer.android.com/jetpack/compose/lists#item-keys) and [content type](https://developer.android.com/jetpack/compose/lists#content-type)
          */
         items(
             items = items,
+            key = {item->item.key},
+            contentType = { item -> "item" },
             itemContent = { item -> ItemComponent(item) },
         )
     }
@@ -97,8 +101,25 @@ private fun HeaderComponent(
     ) {
         with(header) {
             /**
-             * TODO: [Declare the UI](https://developer.android.com/codelabs/jetpack-compose-basics#5) based on the UI model structure
+             * DONE: [Declare the UI](https://developer.android.com/codelabs/jetpack-compose-basics#5) based on the UI model structure
              */
+            Column(modifier = Modifier.padding(InternTheme.dimensions.normal)) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleLarge
+                )
+                Spacer(modifier = Modifier.height(InternTheme.dimensions.normal))
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(InternTheme.dimensions.normal))
+                Text(
+                    text = timestamp,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
         }
     }
 }
@@ -142,7 +163,8 @@ private fun ItemComponent(item: ItemUiModel) = Card {
                 contentDescription = title,
                 contentScale = ContentScale.Crop,
                 error = rememberVectorPainter(Icons.Default.Warning),
-                model = TODO("[Request an image download](https://github.com/coil-kt/coil#requests)"),
+//                model = DONE("[Request an image download](https://github.com/coil-kt/coil#requests)"),
+                model = imageUrl
             )
         }
     }
@@ -182,12 +204,61 @@ private typealias HeaderAndItems = Pair<HeaderUiModel, List<ItemUiModel>>
 
 private class ContentComponentPreviewParameterProvider :
     PreviewParameterProvider<HeaderAndItems> by previewParameterProviderOf(
-        TODO("Define UI models for preview purposes")
+        //DONE("Define UI models for preview purposes")
+        Pair(
+            HeaderUiModel(
+                title = "Content Header",
+                description = "This is a content header preview.",
+                timestamp = "Nov 10, 2021 02:02",
+                items = listOf(
+                    ItemUiModel(
+                        title = "Item Title 0",
+                        description = "Item Description 0",
+                        imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Capricornus_IAU.svg/1204px-Capricornus_IAU.svg.png",
+                        timestamp = "10:00"
+                    ),
+                    ItemUiModel(
+                        title = "Item Title 1",
+                        description = "Item Description 1",
+                        imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Capricornus_IAU.svg/1204px-Capricornus_IAU.svg.png",
+                        timestamp = "11:00"
+                    )
+                )
+            ),
+            listOf(
+                ItemUiModel(
+                    title = "Item Title 0",
+                    description = "Item Description 0",
+                    imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Capricornus_IAU.svg/1204px-Capricornus_IAU.svg",
+                    timestamp = "10:00"
+                ),
+                ItemUiModel(
+                    title = "Item Title 1",
+                    description = "Item Description 1",
+                    imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Capricornus_IAU.svg/1204px-Capricornus_IAU.svg",
+                    timestamp = "10:00"
+                )
+            )
+        )
     )
+
 
 private class HeaderComponentPreviewParameterProvider :
     PreviewParameterProvider<HeaderUiModel> by previewParameterProviderOf(
-        TODO("Define UI models for preview purposes")
+//        DONE("Define UI models for preview purposes")
+        HeaderUiModel(
+            title = "Header Preview Title",
+            description = "This is a header preview description.",
+            timestamp = "Jan 10, 2025 10:00",
+            items = listOf(
+                ItemUiModel(
+                    title = "Item Title 0",
+                    description = "Item Description 0",
+                    imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Capricornus_IAU.svg/1204px-Capricornus_IAU.svg.png",
+                    timestamp = "10:00"
+                )
+            )
+        )
     )
 
 private class ItemComponentPreviewParameterProvider :
@@ -195,7 +266,7 @@ private class ItemComponentPreviewParameterProvider :
         ItemUiModel(
             title = "Item Title 0",
             description = "Item Description 0",
-            imageUrl = null,
+            imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Capricornus_IAU.svg/1204px-Capricornus_IAU.svg.png",
             timestamp = "10:00",
         ),
     )
